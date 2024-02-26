@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CateguryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//---------------categury section-----------//
+Route::get('categury',[CateguryController::class, 'index'])->name('categury.index');
+Route::get('categury/create',[CateguryController::class, 'create'])->name('categury.create');
+//----------------brands section---------//
+Route::get('brand',[BrandController::class, 'index'])->name('brand.index');
+Route::get('brand/create',[BrandController::class, 'create'])->name('brand.create');
+//------------------- Product section--------//
+Route::get('product',[ProductController::class, 'index'])->name('products.index');
+Route::get('product/create',[ProductController::class, 'create'])->name('product.create');
