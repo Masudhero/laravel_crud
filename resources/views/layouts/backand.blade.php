@@ -35,7 +35,7 @@
                         <ul>
                             <li><a href="{{ route('products.index') }}" class="btn btn-sm btn-primary">Products</a></li>
                             <li><a href="{{ route('brand.index') }}" class="btn btn-sm btn-info">Brands</a></li>
-                            <li><a href="{{ route('categury.index') }}" class="btn btn-sm btn-warning">Categuries</a></li>
+                            <li><a href="{{ route('categury.index') }}" class="btn btn-sm btn-warning">Categorys</a></li>
                         </ul>
                     </nav>
                 </div>

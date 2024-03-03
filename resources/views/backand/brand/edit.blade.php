@@ -6,5 +6,36 @@
     </h4>
 </div>
 <div class="card-body">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            {{-- //alert include --}}
+            @include('backand.include.alert')
+
+            <form action="{{ route('brand.update', $brand->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="md-3">
+                    <label for="brand_name" class="form-label">Brand Name</label>
+                    <input type="text" name="brand_name" value="{{ $brand->name }}" id ="brand_name" class="form-control">
+                </div>
+                @error('brand_name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+                <div class="md-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select name="status" id="status" class="form-control">
+                        <option value="0" {{ $brand->status == 0 ? 'selected' : '' }}>Pandding</option>
+                        <option value="1" {{ $brand->status == 1 ? 'selected' : '' }}>Published</option>
+                    </select>
+                    @error('brand_name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+                </div>
+                <div class="text-end py-1">
+                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection

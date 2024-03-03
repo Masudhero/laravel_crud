@@ -14,12 +14,29 @@
         <th>Action</th>
     </thead>
     <tbody>
+        @forelse ($category as $value )
         <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+            <td>{{ $loop->index+1 }}</td>
+            <td>{{ $value->name }}</td>
+            <td>
+                @if($value->status==1)
+                <span class="badge bg-success">Published</span>
+                @else
+                <span class="badge bg-danger">Pandding</span>
+                @endif
+            </td>
+            <td>
+                <div class="d-flex align-aitems-center">
+                    <a href="{{ route('categury.edit',$value->id) }}" class="btn btn-sm btn-info me-1">Edit</a>
+                    <a href="" class="btn brn-sm btn-danger">Delete</a>
+                </div>
+            </td>
         </tr>
+        @empty
+            <tr>
+                <td colspan="4" class="text-danger">No data found</td>
+            </tr>
+        @endforelse
     </tbody>
 </table>
 </div>
